@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 source ./get_dist_name.sh
 package_tool=$(get_dist_name)
 
@@ -9,7 +11,7 @@ if [[ "yum" = "$package_tool" ]]; then
     yum -y install vim
 elif [[ "apt" = "$package_tool" ]]; then
     apt-get update
-    apt-get install -y --no-install-recommends python-setuptools && easy_install pip
+    apt-get install -y --no-install-recommends build-essential python-dev python-setuptools python-pip
     apt-get install -y --no-install-recommends vim
 fi
     
