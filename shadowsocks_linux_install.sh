@@ -15,7 +15,7 @@ elif [[ "apt" = "$package_tool" ]]; then
     apt-get install -y --no-install-recommends vim
 fi
     
-    pip install shadowsocks
+pip install shadowsocks
 
 if [[ -n "$1" ]]; then
     password=$1
@@ -26,17 +26,16 @@ fi
 if [[ -f "/etc/shadowsocks.json" ]]; then
     echo "Have existed shadowsocks.json"
     rm /etc/shadowsocks.json
-else
-    echo -e '{
-	"server":["[::]","0.0.0.0"],
+fi
+echo -e '{
+	"server":["::","0.0.0.0"],
 	"server_port":"8389",
-	"password":""'"$password"'"",
+	"password":"'"$password"'",
 	"timeout":300,
 	"method":"aes-256-cfb",
 	"fast_open":true,
 	"workers": 1
-    }'
-fi
+    }' > /etc/shadowsocks.json
 
 
 
