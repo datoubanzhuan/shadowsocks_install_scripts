@@ -37,5 +37,5 @@ echo -e '{
 	"workers": 1
     }' > /etc/shadowsocks.json
 
-
-
+# start on boot
+echo "ssserver -c /etc/shadowsocks.json -d start" >> /etc/rc.local
