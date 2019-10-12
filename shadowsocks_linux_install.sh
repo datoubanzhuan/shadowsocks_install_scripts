@@ -28,7 +28,7 @@ if [[ -f "/etc/shadowsocks.json" ]]; then
     rm /etc/shadowsocks.json
 fi
 echo -e '{
-	"server":["::","0.0.0.0"],
+	"server":"0.0.0.0",
 	"server_port":"8389",
 	"password":"'"$password"'",
 	"timeout":300,
