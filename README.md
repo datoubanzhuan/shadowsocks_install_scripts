@@ -31,4 +31,4 @@ Traceback (most recent call last):
 AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
 ```
 
-解决办法是将`usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py`中的`EVP_CIPHER_CTX_cleanup`更改为`EVP_CIPHER_CTX_reset`
+解决办法是将`/usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py`中的`EVP_CIPHER_CTX_cleanup`更改为`EVP_CIPHER_CTX_reset`
