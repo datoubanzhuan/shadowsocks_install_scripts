@@ -32,3 +32,23 @@ AttributeError: /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1: undefined symbol: EV
 ```
 
 解决办法是将`/usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py`中的`EVP_CIPHER_CTX_cleanup`更改为`EVP_CIPHER_CTX_reset`
+
+## pip error
+
+```log
+Traceback (most recent call last):
+  File "/usr/bin/pip3", line 11, in <module>
+    sys.exit(main())
+  File "/usr/lib/python3/dist-packages/pip/__init__.py", line 215, in main
+    locale.setlocale(locale.LC_ALL, '')
+  File "/usr/lib/python3.5/locale.py", line 594, in setlocale
+    return _setlocale(category, locale)
+locale.Error: unsupported locale setting
+```
+
+显示`LC_ALL`出错，解决方法:
+
+```shell
+export LC_ALL=C
+```
+
